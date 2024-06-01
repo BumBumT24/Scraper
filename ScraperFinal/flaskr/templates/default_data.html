@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Scraped Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styledefault.css') }}">
+</head>
+<body>
+    <h1>Default Scraped Data</h1>
+    <nav class="navigation">
+        <a href="/" class="large-button">Home</a>
+    </nav>
+    <div id="all">
+        <form action="/delete_default_all" method="post" class="form-buttons">
+            <input type="submit" value="Delete All Data Created by scrape_default">
+        </form>
+        <form action="/delete_default_data" method="post" class="form-buttons">
+            <input type="submit" value="Delete Selected Data">
+            <ul>
+                {% for data in dataR %}
+                    <li class="collection">
+                        <label class="collection-label"><input type="checkbox" name="url_to_delete" value="{{ data.url }}"> URL: {{ data.url }}</label>
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">Scraped Data</button>
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li><h3>Headers:</h3> {{ data.headers }}</li>
+                                    <li><h3>Links:</h3> {{ data.links }}</li>
+                                    <li><h3>Addresses:</h3> {{ data.addresses }}</li>
+                                    <li><h3>Emails:</h3> {{ data.emails }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </form>
+    </div>
+    <h4 style="padding-bottom: 30px; text-align: center;">Disclaimer: this site is only for educational purposes, the collected data is not sold to third parties or used illegally </h4>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

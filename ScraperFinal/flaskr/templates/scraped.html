@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylescraped.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraped Data</title>
+</head>
+<body>
+    <h1>Scraped Data from {{ data.url }}</h1>
+    <nav class="navigation">
+        <a href="/" class="large-button">Home</a>
+    </nav>
+    <div id="all">
+        <div class="collapsible">
+            <button type="button" class="collapsible-button">Headers</button>
+            <div class="collapsible-content">
+                <ul>
+                    {% for header in data.headers %}
+                        <li class="collection">{{ header }}</li>
+                    {% endfor %}
+                </ul>
+                </div>
+        </div>
+
+        <div class="collapsible">
+            <button type="button" class="collapsible-button">links</button>
+            <div class="collapsible-content">
+                <ul>
+                    {% for link in data.links %}
+                        <li class="collection">{{ link }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <button type="button" class="collapsible-button">Addresses</button>
+            <div class="collapsible-content">
+                <ul>
+                    {% for address in data.addresses %}
+                        <li class="collection">{{ address }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    <div class="collapsible">
+            <button type="button" class="collapsible-button">Emails</button>
+            <div class="collapsible-content">
+                <ul>
+                    {% for email in data.emails %}
+                        <li class="collection">{{ email }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h4 style="padding-bottom: 30px; text-align: center;">Disclaimer: this site is only for educational purposes, the collected data is not sold to third parties or used illegally </h4>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

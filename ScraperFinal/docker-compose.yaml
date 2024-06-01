@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=kacper
+      - MONGO_INITDB_ROOT_PASSWORD=kacper
+    volumes:
+      - mongo-data:/data/db
+
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb+srv://kacper:kacper@baza1.1lctbku.mongodb.net/?retryWrites=true&w=majority&appName=Baza1
+
+  scraper:
+    build: ./web_scraper .
+    environment:
+      - MONGO_URI=mongodb+srv://kacper:kacper@baza1.1lctbku.mongodb.net/?retryWrites=true&w=majority&appName=Baza1
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo-data:
+
