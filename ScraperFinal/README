@@ -22,3 +22,7 @@ Uruchomienie w kubernetesie za pomoca minikuba:
   kubectl apply -f k8s/scraper-deployment.yaml //utworzenie deployments i services
   
   minikube service flask-service //uruchomienie service flask
+
+ //Komentarze do kodu:
+  Przy uruchamianiu należy zmienic wartosci autentykacji MongoDB na własne, ponieważ baza działa tylko na wczesniej dodanych adresach ip.
+  Obrazy są dostępne w publicznych repozytoriach.
