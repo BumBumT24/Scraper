@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Scraped Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleall_data.css') }}">
+</head>
+<body>
+    <h1>All Scraped Data</h1>
+    <nav class="navigation">
+        <a href="/" class="large-button">Home</a>
+    </nav>
+    <div id="all">
+
+            <form action="/delete_all" method="post" class="form-buttons">
+                <input type="submit" class="large-button" value="Delete All Data">
+            </form>
+            <form action="/delete_chosen_data" method="post" class="form-buttons">
+                <input type="submit" class="large-button" value="Delete Selected Data">
+
+
+        <ul>
+            {% for collection_name, documents in all_data.items() %}
+                <li class="collection">
+                    <label class="collection-label"><input type="checkbox" name="url_to_delete" value="{{ collection_name }}"> Collection: {{ collection_name }}</label>
+                    {% for doc in documents %}
+                        <div class="collapsible">
+                            <button type="button" class="collapsible-button">{{ doc.type }}</button>
+                            <div class="collapsible-content">
+                                <ol>
+                                    {% for item in doc.data %}
+                                        <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ul>
+            </form>
+
+    </div>
+
+    <h4 style="padding-bottom: 30px; text-align: center;">Disclaimer: this site is only for educational purposes, the collected data is not sold to third parties or used illegally </h4>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

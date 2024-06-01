@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 2em;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #333;
+}
+
+.url-form {
+    margin-bottom: 1em;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.url-input {
+    width: 70%;
+    padding: 0.5em;
+    font-size: 1.2em;
+    margin-right: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.scrape-button {
+    background: #333;
+    color: #fff;
+    border: 0;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 0.5em;
+}
+
+.scrape-button:hover {
+    background: #555;
+}
+
+.button-container {
+    margin-top: 1em;
+}
+
+.large-button {
+    background: #333;
+    color: #fff;
+    border: 0;
+    padding: 0.75em 1.5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0.5em 0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.large-button:hover {
+    background: #555;
+}

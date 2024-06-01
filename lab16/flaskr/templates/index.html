@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter URL to Scrape</h1>
+        <form action="/" method="post" class="url-form">
+            <div class="input-group">
+                <input type="text" id="url" name="url" class="url-input" placeholder="Your URL">
+                <input type="submit" value="Scrape" class="scrape-button">
+            </div>
+        </form>
+        <div class="button-container">
+            <form action="/default_data" method="get">
+                <input type="submit" value="Default scrape" class="large-button">
+            </form>
+            <form action="/all_data" method="get">
+                <input type="submit" value="All data" class="large-button">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
